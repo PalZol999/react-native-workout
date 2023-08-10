@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, FlatList } from "react-native"
+import { View, Text, StyleSheet, FlatList, Pressable } from "react-native"
 import {MontserratText} from "../components/styled/MontserratText"
 import data from '../data.json'
 import { NativeStackHeaderProps } from "@react-navigation/native-stack"
@@ -13,7 +13,16 @@ export default function HomeScreen({navigation}: NativeStackHeaderProps) {
             <MontserratText>New Workouts</MontserratText>
             <FlatList 
             data={data as Array<Workout>}
-            renderItem={WorkoutItem}
+            renderItem={({item}) => {
+                return (
+                    <Pressable
+                    onPress={() => navigation.navigate("WorkoutDetail", {slug: item.slug})}
+                    >
+                    <WorkoutItem item={item}
+                    />
+                    </Pressable>
+                )
+            }}
             keyExtractor={item => item.slug}
 
             />
