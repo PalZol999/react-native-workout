@@ -15,7 +15,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.palzol.workoutapp"
     },
     "android": {
       "adaptiveIcon": {
@@ -25,6 +26,11 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "d336d5b0-d0c5-4dfa-b8c9-85b92785d676"
+      }
     }
   }
 }

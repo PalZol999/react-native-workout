@@ -66,23 +66,27 @@ sequence.length === workout.sequence.length && countDown === 0
             />
         }
         >
-         <View>
-            {workout.sequence.map((si, idx)=>
-            <View key={si.slug}
-            style= {stlyes.sequenceItem}>
-                <Text >
-                    {si.name} | {si.type} | {formatSec (si.duration)}
+     { () =>
+          <View>
+            { workout.sequence.map((si, idx) =>
+              <View
+                key={si.slug}
+                style={stlyes.sequenceItem}
+              >
+                <Text>
+                  {si.name} | {si.type} | {formatSec(si.duration)}
                 </Text>
-                {idx !== workout.sequence.length-1 &&
-                     <FontAwesome
-                     name="arrow-down"
-                     size={20}
-                 />
-             }                
-         </View>
-        )}
-            </View>
-            </ModalM>
+                { idx !== workout.sequence.length - 1 &&
+                  <FontAwesome
+                    name="arrow-down"
+                    size={20}
+                  />
+                }
+              </View>
+            )}
+          </View>
+        }
+         </ModalM>
         </WorkoutItem>
     <View style={stlyes.wrapper}>
         <View style={stlyes.counterUI}>
@@ -128,7 +132,7 @@ sequence.length === workout.sequence.length && countDown === 0
         <View style={{alignItems: "center"}}>
             <Text style={{fontSize: 60, fontWeight: "bold"}}>
             { sequence.length === 0? 
-            "Prepare" : 
+            "Prepare!" : 
             hasReachedEnd ?
             "Great Job!" : sequence[trackerIdx].name
             }
